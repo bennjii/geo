@@ -1,5 +1,5 @@
-use std::cmp::Ordering;
-use std::collections::VecDeque;
+use alloc::collections::VecDeque;
+use core::cmp::Ordering;
 
 use crate::kernels::*;
 use crate::{Coord, GeoNum, LineString, Orientation};

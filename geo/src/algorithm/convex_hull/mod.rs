@@ -118,7 +118,7 @@ where
 /// 3. return a _mutable ref_ to the removed head element
 fn swap_with_first_and_remove<'a, T>(slice: &mut &'a mut [T], idx: usize) -> &'a mut T {
     // temporarily replace `slice` with an empty value
-    let tmp = std::mem::take(slice);
+    let tmp = core::mem::take(slice);
     tmp.swap(0, idx);
     let (h, t) = tmp.split_first_mut().unwrap();
     *slice = t;

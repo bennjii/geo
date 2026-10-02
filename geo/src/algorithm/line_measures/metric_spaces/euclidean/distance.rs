@@ -160,7 +160,7 @@ impl<F: GeoFloat> Distance<F, &Line<F>, &Polygon<F>> for Euclidean {
         }
 
         // REVIEW: This impl changed slightly.
-        std::iter::once(polygon.exterior())
+        core::iter::once(polygon.exterior())
             .chain(polygon.interiors().iter())
             .fold(Bounded::max_value(), |acc, line_string| {
                 acc.min(self.distance(line, line_string))
@@ -997,7 +997,7 @@ mod test {
         // Results agree with Shapely
         assert_relative_eq!(dist, 2.0485900789263356);
         assert_relative_eq!(dist2, 1.118033988749895);
-        assert_relative_eq!(dist3, std::f64::consts::SQRT_2); // workaround clippy::correctness error approx_constant (1.4142135623730951)
+        assert_relative_eq!(dist3, core::f64::consts::SQRT_2); // workaround clippy::correctness error approx_constant (1.4142135623730951)
         assert_relative_eq!(dist4, 1.5811388300841898);
         // Point is on the line
         let zero_dist = line_segment_distance(p1, p1, p2);

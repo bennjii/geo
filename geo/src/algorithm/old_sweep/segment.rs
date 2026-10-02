@@ -1,6 +1,6 @@
 use super::*;
 use crate::GeoFloat;
-use std::{cmp::Ordering, fmt::Debug};
+use core::{cmp::Ordering, fmt::Debug};
 
 /// A segment of input [`LineOrPoint`] generated during the sweep.
 #[derive(Clone)]
@@ -102,7 +102,7 @@ impl<C: Cross> Segment<C> {
 
 /// A more concise debug impl.
 impl<C: Cross> Debug for Segment<C> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(
             f,
             "Segment{{ {geom:?}\n\tof {c:?}\n\t{first} [{has}/{ovl}] }}",

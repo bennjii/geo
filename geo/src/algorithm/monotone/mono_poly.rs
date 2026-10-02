@@ -31,8 +31,8 @@ impl<T: GeoNum> BoundingRect<T> for MonoPoly<T> {
         self.bounds
     }
 }
-impl<T: GeoNum> std::fmt::Debug for MonoPoly<T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl<T: GeoNum> core::fmt::Debug for MonoPoly<T> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         let top: Vec<SweepPoint<T>> = self.top.0.iter().map(|c| (*c).into()).collect();
         let bot: Vec<SweepPoint<T>> = self.bot.0.iter().map(|c| (*c).into()).collect();
         f.debug_struct("MonoPoly")

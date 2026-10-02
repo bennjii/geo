@@ -79,7 +79,7 @@ mod triangle;
 #[inline]
 fn value_in_range<T>(value: T, min: T, max: T) -> bool
 where
-    T: std::cmp::PartialOrd,
+    T: core::cmp::PartialOrd,
 {
     value >= min && value <= max
 }
@@ -89,7 +89,7 @@ where
 #[inline]
 pub(crate) fn value_in_between<T>(value: T, bound_1: T, bound_2: T) -> bool
 where
-    T: std::cmp::PartialOrd,
+    T: core::cmp::PartialOrd,
 {
     if bound_1 < bound_2 {
         value_in_range(value, bound_1, bound_2)

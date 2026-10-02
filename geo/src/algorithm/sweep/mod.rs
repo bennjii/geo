@@ -71,7 +71,7 @@
 
 use crate::GeoNum;
 use crate::line_intersection::{LineIntersection, line_intersection};
-use std::fmt::Debug;
+use core::fmt::Debug;
 
 mod cross;
 #[cfg(test)]

@@ -24,7 +24,7 @@ where
 {
     fn default() -> Self {
         Self {
-            snap_radius: <T as std::convert::From<f32>>::from(0.000_1),
+            snap_radius: <T as core::convert::From<f32>>::from(0.000_1),
         }
     }
 }
@@ -597,7 +597,7 @@ pub(crate) fn sweep_normalize_line<T: GeoFloat>(line: Line<T>) -> Line<T> {
         .x
         .total_cmp(&line.end.x)
         .then_with(|| line.start.y.total_cmp(&line.end.y));
-    if cmp == std::cmp::Ordering::Greater {
+    if cmp == core::cmp::Ordering::Greater {
         Line::new(line.end, line.start)
     } else {
         line
@@ -605,7 +605,7 @@ pub(crate) fn sweep_normalize_line<T: GeoFloat>(line: Line<T>) -> Line<T> {
 }
 
 /// Lexicographic comparison of two lines by (start.x, start.y, end.x, end.y).
-pub(crate) fn sweep_line_ord<T: GeoFloat>(a: &Line<T>, b: &Line<T>) -> std::cmp::Ordering {
+pub(crate) fn sweep_line_ord<T: GeoFloat>(a: &Line<T>, b: &Line<T>) -> core::cmp::Ordering {
     a.start
         .x
         .total_cmp(&b.start.x)

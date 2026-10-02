@@ -1,4 +1,5 @@
-use std::{cmp::Ordering, collections::BinaryHeap};
+use alloc::collections::BinaryHeap;
+use core::cmp::Ordering;
 
 use crate::GeoFloat;
 

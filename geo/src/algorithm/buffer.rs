@@ -283,15 +283,15 @@ impl<F: BoolOpsNum + 'static> Buffer for Point<F> {
             }
             LineCap::Round(angle) => {
                 // approximate a circle
-                let num_segments = (2.0 * std::f64::consts::PI / angle.to_f64()).ceil() as usize;
+                let num_segments = (2.0 * core::f64::consts::PI / angle.to_f64()).ceil() as usize;
                 let center = self.0;
                 let radius = style.distance;
 
                 let mut coords = Vec::with_capacity(num_segments + 1);
                 for i in 0..num_segments {
                     let angle = F::from_f64(
-                        2.0 * std::f64::consts::PI / num_segments as f64 * i as f64
-                            + std::f64::consts::PI,
+                        2.0 * core::f64::consts::PI / num_segments as f64 * i as f64
+                            + core::f64::consts::PI,
                     )
                     .expect("valid float constant");
                     let x = center.x + radius * Float::cos(angle);

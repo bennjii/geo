@@ -2,7 +2,7 @@ use super::{Dimensions, Direction, EdgeIntersection, IntersectionMatrix, Label};
 use super::{LineIntersection, LineIntersector, RobustLineIntersector};
 use crate::{Coord, GeoFloat, Line};
 
-use std::collections::BTreeSet;
+use alloc::collections::BTreeSet;
 
 /// An `Edge` represents a one dimensional line in a geometry.
 ///

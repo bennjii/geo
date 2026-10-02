@@ -111,7 +111,7 @@ where
         self.insert_edge_ends(edge_ends_b);
 
         let mut nodes = NodeMap::new();
-        std::mem::swap(&mut self.nodes, &mut nodes);
+        core::mem::swap(&mut self.nodes, &mut nodes);
         let labeled_node_edges: Vec<_> = nodes
             .into_iter()
             .map(|(node, edges)| (node, edges.into_labeled(&graph_a, &graph_b)))
@@ -375,8 +375,8 @@ mod test {
     use crate::Relate;
 
     use super::*;
+    use core::str::FromStr;
     use geo_types::{Geometry, line_string, polygon};
-    use std::str::FromStr;
 
     #[test]
     fn test_disjoint() {

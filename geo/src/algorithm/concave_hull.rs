@@ -4,11 +4,9 @@ use crate::{
     Contains, Coord, Distance, Euclidean, GeoFloat, Intersects, Length, Line, LineString,
     MultiLineString, MultiPoint, MultiPolygon, Polygon, Triangle, coord, point,
 };
+use alloc::collections::{BinaryHeap, VecDeque};
+use core::cmp::Ordering;
 use rstar::{AABB, Envelope, ParentNode, RTree, RTreeNode, RTreeNum};
-use std::{
-    cmp::Ordering,
-    collections::{BinaryHeap, VecDeque},
-};
 
 /// Returns a polygon which covers a geometry. Unlike convex hulls, which also cover
 /// their geometry, a concave hull does so while trying to further minimize its area by

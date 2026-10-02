@@ -35,40 +35,40 @@ impl<F: GeoFloat> EdgeIntersection<F> {
     }
 }
 
-impl<F: GeoFloat> std::cmp::PartialEq for EdgeIntersection<F> {
+impl<F: GeoFloat> core::cmp::PartialEq for EdgeIntersection<F> {
     fn eq(&self, other: &EdgeIntersection<F>) -> bool {
         self.segment_index == other.segment_index && self.dist == other.dist
     }
 }
 
-impl<F: GeoFloat> std::cmp::Eq for EdgeIntersection<F> {}
+impl<F: GeoFloat> core::cmp::Eq for EdgeIntersection<F> {}
 
-impl<F: GeoFloat> std::cmp::PartialOrd for EdgeIntersection<F> {
-    fn partial_cmp(&self, other: &EdgeIntersection<F>) -> Option<std::cmp::Ordering> {
+impl<F: GeoFloat> core::cmp::PartialOrd for EdgeIntersection<F> {
+    fn partial_cmp(&self, other: &EdgeIntersection<F>) -> Option<core::cmp::Ordering> {
         Some(self.cmp(other))
     }
 }
 
-impl<F: GeoFloat> std::cmp::Ord for EdgeIntersection<F> {
-    fn cmp(&self, other: &EdgeIntersection<F>) -> std::cmp::Ordering {
+impl<F: GeoFloat> core::cmp::Ord for EdgeIntersection<F> {
+    fn cmp(&self, other: &EdgeIntersection<F>) -> core::cmp::Ordering {
         if self.segment_index < other.segment_index {
-            return std::cmp::Ordering::Less;
+            return core::cmp::Ordering::Less;
         }
         if self.segment_index > other.segment_index {
-            return std::cmp::Ordering::Greater;
+            return core::cmp::Ordering::Greater;
         }
         if self.dist < other.dist {
-            return std::cmp::Ordering::Less;
+            return core::cmp::Ordering::Less;
         }
         if self.dist > other.dist {
-            return std::cmp::Ordering::Greater;
+            return core::cmp::Ordering::Greater;
         }
 
         // BTreeMap requires nodes to be fully `Ord`, but we're comparing floats, so we require
         // non-NaN for valid results.
         debug_assert!(!self.dist.is_nan() && !other.dist.is_nan());
 
-        std::cmp::Ordering::Equal
+        core::cmp::Ordering::Equal
     }
 }
 

@@ -1,7 +1,7 @@
 use super::super::{CoordNode, Edge, LineIntersection, LineIntersector};
 use crate::{Coord, GeoFloat, Line};
 
-use std::cell::{Ref, RefCell};
+use core::cell::{Ref, RefCell};
 
 /// Computes the intersection of line segments and adds the intersection to the [`Edge`s] containing
 /// the segments.

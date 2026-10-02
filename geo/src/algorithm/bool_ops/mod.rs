@@ -291,7 +291,7 @@ impl<T: BoolOpsNum> BooleanOps for Polygon<T> {
     type Scalar = T;
 
     fn rings(&self) -> impl Iterator<Item = &LineString<Self::Scalar>> {
-        std::iter::once(self.exterior()).chain(self.interiors())
+        core::iter::once(self.exterior()).chain(self.interiors())
     }
 }
 

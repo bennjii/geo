@@ -1,6 +1,6 @@
 use super::{CoordPos, Direction};
 
-use std::fmt;
+use core::fmt;
 
 /// A `TopologyPosition` is the labelling of a graph component's topological relationship to a
 /// single Geometry for each of the component's [`Direction`s](Direction).
@@ -122,7 +122,7 @@ impl TopologyPosition {
         match self {
             Self::LineOrPoint { .. } => {}
             Self::Area { left, right, .. } => {
-                std::mem::swap(left, right);
+                core::mem::swap(left, right);
             }
         }
     }

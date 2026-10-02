@@ -1,4 +1,4 @@
-use std::cmp::Ordering;
+use core::cmp::Ordering;
 
 use crate::GeoFloat;
 use crate::area::{Area, get_linestring_area};
@@ -815,7 +815,7 @@ mod test {
     #[test]
     fn centroid_polygon_numerical_stability() {
         let polygon = {
-            use std::f64::consts::PI;
+            use core::f64::consts::PI;
             const NUM_VERTICES: usize = 10;
             const ANGLE_INC: f64 = 2. * PI / NUM_VERTICES as f64;
 

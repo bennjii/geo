@@ -2,7 +2,7 @@ use super::{swap_with_first_and_remove, trivial_hull};
 use crate::kernels::{Kernel, Orientation};
 use crate::utils::{lex_cmp, partition_slice};
 use crate::{Coord, CoordNum, GeoNum, LineString, coord};
-use std::cmp::Ordering;
+use core::cmp::Ordering;
 
 // Generic point-like element the kernel can operate on. Coord<T> carries no
 // extra information; (usize, Coord<T>) tags each input with its position so

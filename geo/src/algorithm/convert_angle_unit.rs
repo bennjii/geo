@@ -43,7 +43,7 @@ impl<T: CoordFloat, G: MapCoords<T, T, Output = Self> + MapCoordsInPlace<T>> ToD
 
 #[cfg(test)]
 mod tests {
-    use std::f64::consts::PI;
+    use core::f64::consts::PI;
 
     use approx::assert_relative_eq;
     use geo_types::Line;

@@ -210,14 +210,14 @@ where
             }
 
             match pt_cmp(self_iter.peek().unwrap(), other_iter.peek().unwrap()) {
-                std::cmp::Ordering::Equal => {
+                core::cmp::Ordering::Equal => {
                     other_iter.next();
                     self_iter.next();
                 }
-                std::cmp::Ordering::Less => {
+                core::cmp::Ordering::Less => {
                     self_iter.next();
                 }
-                std::cmp::Ordering::Greater => {
+                core::cmp::Ordering::Greater => {
                     return false;
                 }
             }

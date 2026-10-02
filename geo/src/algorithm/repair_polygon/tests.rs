@@ -74,7 +74,7 @@ fn large_polygon_with_many_vertices() {
     let n = 100;
     let coords: Vec<Coord<f64>> = (0..n)
         .map(|i| {
-            let angle = 2.0 * std::f64::consts::PI * (i as f64) / (n as f64);
+            let angle = 2.0 * core::f64::consts::PI * (i as f64) / (n as f64);
             Coord {
                 x: 100.0 * angle.cos(),
                 y: 100.0 * angle.sin(),

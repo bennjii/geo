@@ -16,7 +16,7 @@ pub(crate) struct EdgeEndBundleStar<F>
 where
     F: GeoFloat,
 {
-    edge_map: std::collections::BTreeMap<EdgeEndKey<F>, EdgeEndBundle<F>>,
+    edge_map: alloc::collections::BTreeMap<EdgeEndKey<F>, EdgeEndBundle<F>>,
     point_in_area_location: Option<[CoordPos; 2]>,
 }
 
@@ -164,7 +164,7 @@ where
 {
     pub(crate) fn new() -> Self {
         EdgeEndBundleStar {
-            edge_map: std::collections::BTreeMap::new(),
+            edge_map: alloc::collections::BTreeMap::new(),
             point_in_area_location: None,
         }
     }

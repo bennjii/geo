@@ -314,9 +314,10 @@ where
 #[cfg(test)]
 pub(super) mod tests {
     use crate::Line;
+    use alloc::rc::Rc;
     use log::info;
     use pretty_env_logger::env_logger;
-    use std::{io::Write, rc::Rc};
+    use std::io::Write;
 
     use super::*;
 

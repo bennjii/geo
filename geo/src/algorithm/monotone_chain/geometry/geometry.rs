@@ -1,7 +1,7 @@
 use crate::GeoNum;
 use core::any::type_name;
+use core::convert::TryFrom;
 use geo_types::*;
-use std::convert::TryFrom;
 
 use super::{
     MonotoneChainLineString, MonotoneChainMultiLineString, MonotoneChainMultiPolygon,

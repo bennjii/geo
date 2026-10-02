@@ -7,8 +7,8 @@ use crate::{GeoFloat, HasDimensions, Polygon, PreparedGeometry, Relate};
 use total_ord_coord::TotalOrdCoord;
 use union_find::UnionFind;
 
-use std::cell::RefCell;
-use std::collections::{BTreeMap, BTreeSet};
+use alloc::collections::{BTreeMap, BTreeSet};
+use core::cell::RefCell;
 
 /// A [`Polygon`] must follow these rules to be valid:
 /// - [x] the polygon boundary rings (the exterior shell ring and interior hole rings) are simple (do not cross or self-touch). Because of this a polygon cannnot have cut lines, spikes or loops. This implies that polygon holes must be represented as interior rings, rather than by the exterior ring self-touching (a so-called "inverted hole").
@@ -60,7 +60,7 @@ impl<F: GeoFloat> Validation for Polygon<F> {
             return Ok(());
         }
 
-        for (ring_idx, ring) in std::iter::once(self.exterior())
+        for (ring_idx, ring) in core::iter::once(self.exterior())
             .chain(self.interiors().iter())
             .enumerate()
         {
@@ -163,7 +163,7 @@ impl<F: GeoFloat> Validation for Polygon<F> {
         //
         // The graph omits empty rings, so its edge indices only line up with our
         // ring roles once the empty interiors have been skipped.
-        let ring_roles: Vec<RingRole> = std::iter::once(RingRole::Exterior)
+        let ring_roles: Vec<RingRole> = core::iter::once(RingRole::Exterior)
             .chain(
                 self.interiors()
                     .iter()
@@ -267,7 +267,7 @@ fn find_disconnecting_edges<F: GeoFloat>(graph: &GeometryGraph<F>) -> Option<(us
 
 mod total_ord_coord {
     use crate::{Coord, GeoFloat};
-    use std::cmp::Ordering;
+    use core::cmp::Ordering;
 
     #[derive(Debug, Clone, Copy)]
     pub(super) struct TotalOrdCoord<F: GeoFloat>(pub Coord<F>);
@@ -294,7 +294,7 @@ mod total_ord_coord {
 }
 
 mod union_find {
-    use std::cmp::Ordering;
+    use core::cmp::Ordering;
 
     /// Union Find is a classic algorithm for managing disjoint sets - i.e. which rings are touching.
     ///

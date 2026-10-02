@@ -5,7 +5,7 @@ use super::{
     MonotoneChainMultiPolygon, MonotoneChainPolygon,
 };
 use crate::GeoNum;
-use std::iter;
+use core::iter;
 
 /// An iterator over a compatible Geometry type which yields &[`MonotoneChain`]s.
 pub trait MonotoneChains<'a: 'caller, 'caller, T: GeoNum + 'a> {

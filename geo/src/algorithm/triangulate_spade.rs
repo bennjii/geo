@@ -29,7 +29,7 @@ where
 {
     fn default() -> Self {
         Self {
-            snap_radius: <T as std::convert::From<f32>>::from(0.000_1),
+            snap_radius: <T as core::convert::From<f32>>::from(0.000_1),
         }
     }
 }

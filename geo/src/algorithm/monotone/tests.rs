@@ -1,4 +1,4 @@
-use std::{fmt::Display, str::FromStr};
+use core::{fmt::Display, str::FromStr};
 
 use approx::RelativeEq;
 use geo_types::Polygon;

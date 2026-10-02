@@ -1,7 +1,7 @@
 use num_traits::ToPrimitive;
 
 use crate::{Coord, CoordFloat, CoordNum, MapCoords, MapCoordsInPlace};
-use std::{fmt, ops::Mul, ops::Neg};
+use core::{fmt, ops::Mul, ops::Neg};
 
 /// Apply an [`AffineTransform`] like [`scale`](AffineTransform::scale),
 /// [`skew`](AffineTransform::skew), or [`rotate`](AffineTransform::rotate) to a

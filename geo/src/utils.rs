@@ -86,7 +86,7 @@ pub fn partial_min<T: PartialOrd>(a: T, b: T) -> T {
     if a < b { a } else { b }
 }
 
-use std::cmp::Ordering;
+use core::cmp::Ordering;
 
 /// Compare two coordinates lexicographically: first by the
 /// x coordinate, and break ties with the y coordinate.

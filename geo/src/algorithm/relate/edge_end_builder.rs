@@ -1,20 +1,20 @@
 use super::geomgraph::{Edge, EdgeEnd, EdgeIntersection};
 use crate::GeoFloat;
 
-use std::cell::RefCell;
+use core::cell::RefCell;
 
 /// Computes the [`EdgeEnd`]s which arise from an [`Edge`] who has had its `edge_intersections`
 /// populated with self and proper [`EdgeIntersection`]s.
 ///
 /// Based on [JTS's EdgeEndBuilder as of 1.18.1](https://github.com/locationtech/jts/blob/jts-1.18.1/modules/core/src/main/java/org/locationtech/jts/operation/relate/EdgeEndBuilder.java)
 pub(crate) struct EdgeEndBuilder<F: GeoFloat> {
-    _marker: std::marker::PhantomData<F>,
+    _marker: core::marker::PhantomData<F>,
 }
 
 impl<F: GeoFloat> EdgeEndBuilder<F> {
     pub fn new() -> Self {
         EdgeEndBuilder {
-            _marker: std::marker::PhantomData,
+            _marker: core::marker::PhantomData,
         }
     }
 

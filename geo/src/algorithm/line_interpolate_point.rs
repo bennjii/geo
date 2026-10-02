@@ -4,7 +4,7 @@ use crate::coords_iter::CoordsIter;
 // so as not to change the method signature for existing users.
 #[allow(deprecated)]
 use crate::{CoordFloat, EuclideanLength, Line, LineString, Point};
-use std::ops::AddAssign;
+use core::ops::AddAssign;
 
 #[deprecated(
     since = "0.30.0",
@@ -78,7 +78,7 @@ where
 #[allow(deprecated)]
 impl<T> LineInterpolatePoint<T> for LineString<T>
 where
-    T: CoordFloat + AddAssign + std::fmt::Debug,
+    T: CoordFloat + AddAssign + core::fmt::Debug,
     Line<T>: EuclideanLength<T>,
     LineString<T>: EuclideanLength<T>,
 {

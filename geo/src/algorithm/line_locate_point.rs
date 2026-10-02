@@ -6,7 +6,7 @@ use crate::{
     CoordFloat, Line, LineString, Point,
     {euclidean_distance::EuclideanDistance, euclidean_length::EuclideanLength},
 };
-use std::ops::AddAssign;
+use core::ops::AddAssign;
 
 /// Returns a (option of the) fraction of the line's total length
 /// representing the location of the closest point on the line to

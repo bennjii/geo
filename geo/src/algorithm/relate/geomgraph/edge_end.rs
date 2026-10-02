@@ -1,8 +1,8 @@
 use super::{CoordNode, Edge, Label, Quadrant};
 use crate::{Coord, GeoFloat, coord};
 
-use std::cell::RefCell;
-use std::fmt;
+use core::cell::RefCell;
+use core::fmt;
 
 /// Models the end of an edge incident on a node.
 ///
@@ -82,9 +82,9 @@ where
     }
 }
 
-impl<F> std::cmp::Eq for EdgeEndKey<F> where F: GeoFloat {}
+impl<F> core::cmp::Eq for EdgeEndKey<F> where F: GeoFloat {}
 
-impl<F> std::cmp::PartialEq for EdgeEndKey<F>
+impl<F> core::cmp::PartialEq for EdgeEndKey<F>
 where
     F: GeoFloat,
 {
@@ -93,20 +93,20 @@ where
     }
 }
 
-impl<F> std::cmp::PartialOrd for EdgeEndKey<F>
+impl<F> core::cmp::PartialOrd for EdgeEndKey<F>
 where
     F: GeoFloat,
 {
-    fn partial_cmp(&self, other: &EdgeEndKey<F>) -> Option<std::cmp::Ordering> {
+    fn partial_cmp(&self, other: &EdgeEndKey<F>) -> Option<core::cmp::Ordering> {
         Some(self.cmp(other))
     }
 }
 
-impl<F> std::cmp::Ord for EdgeEndKey<F>
+impl<F> core::cmp::Ord for EdgeEndKey<F>
 where
     F: GeoFloat,
 {
-    fn cmp(&self, other: &EdgeEndKey<F>) -> std::cmp::Ordering {
+    fn cmp(&self, other: &EdgeEndKey<F>) -> core::cmp::Ordering {
         self.compare_direction(other)
     }
 }
@@ -115,8 +115,8 @@ impl<F> EdgeEndKey<F>
 where
     F: GeoFloat,
 {
-    pub(crate) fn compare_direction(&self, other: &EdgeEndKey<F>) -> std::cmp::Ordering {
-        use std::cmp::Ordering;
+    pub(crate) fn compare_direction(&self, other: &EdgeEndKey<F>) -> core::cmp::Ordering {
+        use core::cmp::Ordering;
         if self.delta == other.delta {
             return Ordering::Equal;
         }
@@ -147,18 +147,18 @@ mod test {
         let edge_end_2 = EdgeEnd::new(Coord::zero(), coord! { x: 1.0, y: 1.0 }, fake_label.clone());
         assert_eq!(
             edge_end_1.key().cmp(edge_end_2.key()),
-            std::cmp::Ordering::Equal
+            core::cmp::Ordering::Equal
         );
 
         // edge_end_3 is clockwise from edge_end_1
         let edge_end_3 = EdgeEnd::new(Coord::zero(), coord! { x: 1.0, y: -1.0 }, fake_label);
         assert_eq!(
             edge_end_1.key().cmp(edge_end_3.key()),
-            std::cmp::Ordering::Less
+            core::cmp::Ordering::Less
         );
         assert_eq!(
             edge_end_3.key().cmp(edge_end_1.key()),
-            std::cmp::Ordering::Greater
+            core::cmp::Ordering::Greater
         );
     }
 }

@@ -1,4 +1,4 @@
-use std::cmp::Ordering;
+use core::cmp::Ordering;
 
 use crate::geometry::*;
 use crate::intersects::{point_in_rect, value_in_between};

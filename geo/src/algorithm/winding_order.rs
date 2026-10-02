@@ -2,8 +2,8 @@ use super::kernels::*;
 use crate::coords_iter::CoordsIter;
 use crate::utils::EitherIter;
 use crate::{CoordNum, GeoFloat, GeoNum, LineString, Point};
+use core::iter::Rev;
 use geo_types::{PointsIter, Triangle};
-use std::iter::Rev;
 
 /// Iterates through a list of `Point`s
 #[allow(missing_debug_implementations)]
@@ -223,9 +223,9 @@ pub fn triangle_winding_order<T: GeoFloat>(tri: &Triangle<T>) -> Option<WindingO
     let cross_prod = ab.x * ac.y - ab.y * ac.x;
 
     match cross_prod.total_cmp(&T::zero()) {
-        std::cmp::Ordering::Less => Some(WindingOrder::Clockwise),
-        std::cmp::Ordering::Equal => None,
-        std::cmp::Ordering::Greater => Some(WindingOrder::CounterClockwise),
+        core::cmp::Ordering::Less => Some(WindingOrder::Clockwise),
+        core::cmp::Ordering::Equal => None,
+        core::cmp::Ordering::Greater => Some(WindingOrder::CounterClockwise),
     }
 }
 

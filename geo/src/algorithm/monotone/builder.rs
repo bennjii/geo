@@ -12,7 +12,7 @@ use crate::{
     old_sweep::{EventType, LineOrPoint, SweepPoint},
     *,
 };
-use std::{cell::Cell, mem::replace};
+use core::{cell::Cell, mem::replace};
 
 /// Construct a monotone subdivision (along the X-axis) of an iterator of polygons.
 ///
@@ -307,8 +307,8 @@ impl<T: GeoNum> Builder<T> {
 
 pub(super) struct Chain<T: GeoNum>(LineString<T>);
 
-impl<T: GeoNum + std::fmt::Debug> std::fmt::Debug for Chain<T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl<T: GeoNum + core::fmt::Debug> core::fmt::Debug for Chain<T> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         let bot: Vec<SweepPoint<T>> = self.0.0.iter().map(|c| (*c).into()).collect();
         f.debug_tuple("Chain").field(&bot).finish()
     }

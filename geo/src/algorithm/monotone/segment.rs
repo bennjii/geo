@@ -1,5 +1,6 @@
-use std::cell::{Ref, RefCell};
-use std::{cmp::Ordering, fmt::Debug, rc::Rc};
+use alloc::rc::Rc;
+use core::cell::{Ref, RefCell};
+use core::{cmp::Ordering, fmt::Debug};
 
 use crate::GeoNum;
 use crate::old_sweep::{Event, EventType, LineOrPoint, SweepPoint};
@@ -16,7 +17,7 @@ pub(crate) struct Segment<T: GeoNum, P> {
 impl<T: GeoNum, P> Segment<T, P> {}
 
 impl<T: GeoNum, P> PartialOrd for Segment<T, P> {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+    fn partial_cmp(&self, other: &Self) -> Option<core::cmp::Ordering> {
         self.line.partial_cmp(&other.line)
     }
 }

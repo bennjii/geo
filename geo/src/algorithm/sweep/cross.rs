@@ -1,7 +1,7 @@
 use crate::GeoFloat;
+use alloc::rc::Rc;
+use alloc::sync::Arc;
 use geo_types::Line;
-use std::rc::Rc;
-use std::sync::Arc;
 
 /// A 1-dimensional finite line used as input to [`Intersections`](super::Intersections).
 ///
