@@ -29,8 +29,8 @@ pub use polygon::InvalidPolygon;
 pub use rect::InvalidRect;
 pub use triangle::InvalidTriangle;
 
-use std::boxed::Box;
-use std::fmt;
+use alloc::boxed::Box;
+use core::fmt;
 
 /// A trait to check if a geometry is valid and report the reason(s) of invalidity.
 ///
@@ -60,7 +60,7 @@ use std::fmt;
 /// assert_eq!(all_validation_errors[1].to_string(), "interior ring at index 0 is not contained within the polygon's exterior");
 /// ```
 pub trait Validation {
-    type Error: std::error::Error;
+    type Error: core::error::Error;
 
     /// Check if the geometry is valid.
     fn is_valid(&self) -> bool {

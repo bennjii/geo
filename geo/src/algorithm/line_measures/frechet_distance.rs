@@ -104,7 +104,7 @@ impl<'a, F: CoordFloat> DiscreteFrechetCalculator<'a, F> {
                     d.max(best_prev)
                 };
             }
-            std::mem::swap(&mut prev_row, &mut cur_row);
+            core::mem::swap(&mut prev_row, &mut cur_row);
         }
 
         prev_row[row_length - 1]

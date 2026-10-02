@@ -1,5 +1,5 @@
 use super::{Active, ActiveSet};
-use std::{cmp::Ordering, fmt::Debug, ops::Index};
+use core::{cmp::Ordering, fmt::Debug, ops::Index};
 
 /// A simple ordered set implementation backed by a `Vec`.
 #[derive(Debug, Clone)]

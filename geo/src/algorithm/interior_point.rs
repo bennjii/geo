@@ -1,4 +1,4 @@
-use std::cmp::{Ordering, Reverse};
+use core::cmp::{Ordering, Reverse};
 
 use crate::algorithm::{
     bounding_rect::BoundingRect,
@@ -190,7 +190,7 @@ fn polygon_interior_point_with_segment_length<T: GeoFloat>(
         },
     );
 
-    let lines = polygon.lines_iter().chain(std::iter::once(scan_line));
+    let lines = polygon.lines_iter().chain(core::iter::once(scan_line));
 
     let mut intersections: Vec<Point<T>> = Vec::new();
     for (l1, l2, inter) in Intersections::from_iter(lines) {

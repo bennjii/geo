@@ -1,4 +1,5 @@
-use std::{fmt::Debug, rc::Rc, sync::Arc};
+use alloc::{rc::Rc, sync::Arc};
+use core::fmt::Debug;
 
 use geo_types::Line;
 

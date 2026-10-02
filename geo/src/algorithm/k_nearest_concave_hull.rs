@@ -2,9 +2,9 @@ use crate::{
     Contains, ConvexHull, Coord, CoordNum, GeoFloat, Intersects, LineString, MultiPoint, Point,
     Polygon,
 };
+use core::cmp::max;
 use num_traits::Float;
 use rstar::RTreeNum;
-use std::cmp::max;
 
 const K_MULTIPLIER: f32 = 1.5;
 

@@ -3,8 +3,8 @@ use crate::{
     Coord, CoordFloat, GeoFloat, Line, LineString, MultiLineString, MultiPolygon, Point, Polygon,
     Triangle,
 };
-use std::cmp::Ordering;
-use std::collections::BinaryHeap;
+use alloc::collections::BinaryHeap;
+use core::cmp::Ordering;
 
 use rstar::primitives::CachedEnvelope;
 use rstar::{RTree, RTreeNum};
@@ -283,7 +283,7 @@ where
 {
     let indices_per_ring =
         vwp_wrapper_indices::<T, INITIAL_MIN, MIN_POINTS>(exterior, interiors, epsilon);
-    let rings = std::iter::once(exterior).chain(interiors.iter().flat_map(|i| i.iter()));
+    let rings = core::iter::once(exterior).chain(interiors.iter().flat_map(|i| i.iter()));
     indices_per_ring
         .into_iter()
         .zip(rings)

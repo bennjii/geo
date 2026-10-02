@@ -1,4 +1,4 @@
-use std::{cmp::Ordering, ops::Deref};
+use core::{cmp::Ordering, ops::Deref};
 
 use geo_types::Coord;
 
@@ -16,8 +16,8 @@ use crate::GeoNum;
 #[derive(PartialEq, Clone, Copy)]
 pub struct SweepPoint<T: GeoNum>(Coord<T>);
 
-impl<T: GeoNum> std::fmt::Debug for SweepPoint<T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl<T: GeoNum> core::fmt::Debug for SweepPoint<T> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("SPt")
             .field(&self.0.x)
             .field(&self.0.y)

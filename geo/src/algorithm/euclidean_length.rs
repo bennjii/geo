@@ -1,4 +1,4 @@
-use std::iter::Sum;
+use core::iter::Sum;
 
 use crate::{CoordFloat, Euclidean, Length, Line, LineString, MultiLineString};
 

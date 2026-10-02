@@ -1,4 +1,5 @@
-use std::{borrow::Cow, cell::RefCell, cmp::Ordering, fmt::Debug, rc::Rc};
+use alloc::{borrow::Cow, rc::Rc};
+use core::{cell::RefCell, cmp::Ordering, fmt::Debug};
 
 use super::*;
 
@@ -24,7 +25,7 @@ impl<C: Cross> From<Segment<C>> for IMSegment<C> {
 }
 
 impl<C: Cross> Debug for IMSegment<C> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         RefCell::borrow(&self.inner).fmt(f)
     }
 }

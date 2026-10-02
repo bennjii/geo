@@ -1,4 +1,4 @@
-use std::{borrow::Borrow, cmp::Ordering, fmt::Debug, ops::Deref};
+use core::{borrow::Borrow, cmp::Ordering, fmt::Debug, ops::Deref};
 
 /// A segment currently active in the sweep.
 ///
@@ -17,7 +17,7 @@ pub(in crate::algorithm) struct Active<T>(pub(in crate::algorithm) T);
 
 impl<T> Active<T> {
     pub(in crate::algorithm) fn active_ref(t: &T) -> &Active<T> {
-        unsafe { std::mem::transmute(t) }
+        unsafe { core::mem::transmute(t) }
     }
 }
 

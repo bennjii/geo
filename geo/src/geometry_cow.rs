@@ -2,7 +2,7 @@ use crate::{
     CoordNum, Geometry, GeometryCollection, Line, LineString, MultiLineString, MultiPoint,
     MultiPolygon, Point, Polygon, Rect, Triangle,
 };
-use std::borrow::Cow;
+use alloc::borrow::Cow;
 
 /// A `GeometryCow` is a "one of" enum, just like [`Geometry`], except it is possible for the inner
 /// type of a `GeometryCow` to be a reference rather than owned.

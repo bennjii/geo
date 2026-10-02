@@ -2,7 +2,7 @@ use super::super::{Edge, GeometryGraph};
 use super::{EdgeSetIntersector, SegmentIntersector};
 use crate::GeoFloat;
 
-use std::cell::RefCell;
+use core::cell::RefCell;
 
 pub(crate) struct SimpleEdgeSetIntersector;
 

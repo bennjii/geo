@@ -141,7 +141,7 @@ fn should_not_panic() {
 /// Plain `<` conflates `-0.0` and `0.0` and violates the invariant.
 #[test]
 fn sweep_line_interval_ordering_holds_for_signed_zero() {
-    use std::cmp::Ordering;
+    use core::cmp::Ordering;
 
     let cases: [Line<f64>; 6] = [
         Line::from([(-0.0, 0.0), (0.0, 1.0)]),

@@ -5,7 +5,7 @@ use crate::{
 
 use crate::geometry_cow::GeometryCow::Point;
 use crate::relate::geomgraph::intersection_matrix::dimension_matcher::DimensionMatcher;
-use std::str::FromStr;
+use core::str::FromStr;
 
 /// The row and column order of the matrix, which is also the order of the
 /// entries in a DE-9IM specification string.
@@ -212,7 +212,7 @@ impl<T> LocationArray<T> {
     }
 }
 
-impl<T> std::ops::Index<CoordPos> for LocationArray<T> {
+impl<T> core::ops::Index<CoordPos> for LocationArray<T> {
     type Output = T;
 
     fn index(&self, index: CoordPos) -> &Self::Output {
@@ -224,7 +224,7 @@ impl<T> std::ops::Index<CoordPos> for LocationArray<T> {
     }
 }
 
-impl<T> std::ops::IndexMut<CoordPos> for LocationArray<T> {
+impl<T> core::ops::IndexMut<CoordPos> for LocationArray<T> {
     fn index_mut(&mut self, index: CoordPos) -> &mut Self::Output {
         match index {
             CoordPos::Inside => &mut self.0[0],
@@ -246,8 +246,8 @@ impl InvalidInputError {
     }
 }
 
-impl std::fmt::Debug for IntersectionMatrix {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Debug for IntersectionMatrix {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         fn char_for_dim(dim: &Dimensions) -> &'static str {
             match dim {
                 Dimensions::Empty => "F",

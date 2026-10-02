@@ -288,9 +288,11 @@
 #[macro_use]
 extern crate serde;
 
+extern crate alloc;
+
 pub use crate::algorithm::*;
 pub use crate::types::Closest;
-use std::cmp::Ordering;
+use core::cmp::Ordering;
 
 pub use crate::algorithm::sweep::Intersections;
 pub use crate::indexed::PreparedGeometry;

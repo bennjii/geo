@@ -2,7 +2,7 @@ use super::util::is_monotone;
 use crate::algorithm::bounding_rect::BoundingRect;
 use crate::geometry::*;
 use crate::{CoordNum, GeoNum};
-use std::cmp::Ordering;
+use core::cmp::Ordering;
 
 /// A [`MonotoneChainSegment`] is a slice of a [`LineString`] where the coordinates are monotonic  
 /// ie. the coordinates are monotonically ordered in both x and y directions  
@@ -94,7 +94,7 @@ impl<'a, T: GeoNum> Iterator for MonotoneChainSegmentFactory<'a, T> {
                 if next_slope == Ordering::Equal {
                     return true;
                 }
-                match std::mem::replace(previous_slope, next_slope) {
+                match core::mem::replace(previous_slope, next_slope) {
                     Ordering::Equal => true,
                     old_slope => old_slope == next_slope,
                 }

@@ -290,7 +290,7 @@ mod tests {
         let e = SubstringError::EmptyLineString;
         let cloned = e.clone();
         assert_eq!(e, cloned);
-        let _: &dyn std::error::Error = &e;
+        let _: &dyn core::error::Error = &e;
         assert_eq!(format!("{e}"), "LineString contains no coordinates");
     }
 

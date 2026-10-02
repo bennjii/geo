@@ -175,7 +175,8 @@
 //! too large, or too small) or if an internal constraint edge insertion
 //! fails.
 
-use std::collections::{HashSet, VecDeque};
+use alloc::collections::VecDeque;
+use std::collections::HashSet;
 
 use geo_types::{Coord, Line, LineString, MultiPolygon, Polygon};
 use spade::handles::{FixedFaceHandle, InnerTag};

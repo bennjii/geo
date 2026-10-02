@@ -1,4 +1,4 @@
-use std::{cmp::Ordering, ops::ControlFlow};
+use core::{cmp::Ordering, ops::ControlFlow};
 
 use geo_types::{Coord, Line, MultiPolygon};
 use sif_itree::ITree;
@@ -14,8 +14,8 @@ use crate::{GeoNum, LinesIter, Orientation};
 #[derive(PartialEq, Clone, Copy)]
 struct YValue<T: GeoNum>(T);
 
-impl<T: GeoNum> std::fmt::Debug for YValue<T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl<T: GeoNum> core::fmt::Debug for YValue<T> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("Y").field(&self.0).finish()
     }
 }

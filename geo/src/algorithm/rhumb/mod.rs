@@ -40,7 +40,7 @@ pub(crate) struct RhumbCalculations<T: CoordFloat + FromPrimitive> {
 
 impl<T: CoordFloat + FromPrimitive> RhumbCalculations<T> {
     pub(crate) fn new(from: &Point<T>, to: &Point<T>) -> Self {
-        let pi = T::from(std::f64::consts::PI).unwrap();
+        let pi = T::from(core::f64::consts::PI).unwrap();
         let two = T::one() + T::one();
         let four = two + two;
 
@@ -138,7 +138,7 @@ pub(crate) fn calculate_destination<T: CoordFloat + FromPrimitive>(
     phi1: T,
     theta: T,
 ) -> Point<T> {
-    let pi = T::from(std::f64::consts::PI).unwrap();
+    let pi = T::from(core::f64::consts::PI).unwrap();
     let two = T::one() + T::one();
     let four = two + two;
     let threshold = T::from(10.0e-12).unwrap();

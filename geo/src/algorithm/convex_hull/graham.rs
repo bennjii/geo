@@ -32,7 +32,7 @@ where
 
     // Find lexicographically least point and add to hull
     use crate::utils::least_index;
-    use std::cmp::Ordering;
+    use core::cmp::Ordering;
     let min_idx = least_index(points);
     let head = swap_with_first_and_remove(&mut points, min_idx);
     output.push(*head);

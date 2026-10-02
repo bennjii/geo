@@ -1,6 +1,6 @@
 use super::{CoordPos, Direction, TopologyPosition};
 
-use std::fmt;
+use core::fmt;
 
 /// A GeometryGraph has components (nodes and edges) which are labeled with their topological
 /// relations to the geometries.

@@ -68,8 +68,8 @@
 //! - [`BallTree::within_radius`] -- all points within a given radius
 
 use crate::{Coord, CoordNum, GeoFloat, GeoNum, Point};
-use std::cmp::Ordering;
-use std::collections::BinaryHeap;
+use alloc::collections::BinaryHeap;
+use core::cmp::Ordering;
 
 /// Default maximum points per leaf before splitting. Empirically chosen for
 /// 2-D Euclidean data: at 10k uniform points, 16 is the fastest setting for
@@ -362,7 +362,7 @@ impl<'a, T: GeoFloat, D> BallTreeNode<'a, T, D> {
     /// indexed by tree position rather than by original input index – e.g.
     /// caching computed values alongside the tree's cache-friendly layout.
     #[inline]
-    pub fn position_range(&self) -> std::ops::Range<usize> {
+    pub fn position_range(&self) -> core::ops::Range<usize> {
         let n = self.raw();
         n.start..n.end
     }

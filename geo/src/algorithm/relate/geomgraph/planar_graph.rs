@@ -4,7 +4,7 @@ use super::{
 };
 use crate::{Coord, GeoFloat};
 
-use std::cell::RefCell;
+use core::cell::RefCell;
 
 #[derive(Clone, PartialEq)]
 pub(crate) struct PlanarGraphNode;

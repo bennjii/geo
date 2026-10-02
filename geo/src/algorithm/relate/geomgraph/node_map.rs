@@ -1,9 +1,9 @@
 use super::{CoordNode, CoordPos, EdgeEnd};
 use crate::{Coord, GeoFloat};
 
-use std::collections::BTreeMap;
-use std::fmt;
-use std::marker::PhantomData;
+use alloc::collections::BTreeMap;
+use core::fmt;
+use core::marker::PhantomData;
 
 /// A map of nodes, indexed by the coordinate of the node
 #[derive(Clone, PartialEq)]
@@ -37,8 +37,8 @@ where
 #[derive(Clone)]
 struct NodeKey<F: GeoFloat>(Coord<F>);
 
-impl<F: GeoFloat> std::cmp::Ord for NodeKey<F> {
-    fn cmp(&self, other: &NodeKey<F>) -> std::cmp::Ordering {
+impl<F: GeoFloat> core::cmp::Ord for NodeKey<F> {
+    fn cmp(&self, other: &NodeKey<F>) -> core::cmp::Ordering {
         debug_assert!(!self.0.x.is_nan());
         debug_assert!(!self.0.y.is_nan());
         debug_assert!(!other.0.x.is_nan());
@@ -47,13 +47,13 @@ impl<F: GeoFloat> std::cmp::Ord for NodeKey<F> {
     }
 }
 
-impl<F: GeoFloat> std::cmp::PartialOrd for NodeKey<F> {
-    fn partial_cmp(&self, other: &NodeKey<F>) -> Option<std::cmp::Ordering> {
+impl<F: GeoFloat> core::cmp::PartialOrd for NodeKey<F> {
+    fn partial_cmp(&self, other: &NodeKey<F>) -> Option<core::cmp::Ordering> {
         Some(self.cmp(other))
     }
 }
 
-impl<F: GeoFloat> std::cmp::PartialEq for NodeKey<F> {
+impl<F: GeoFloat> core::cmp::PartialEq for NodeKey<F> {
     fn eq(&self, other: &NodeKey<F>) -> bool {
         debug_assert!(!self.0.x.is_nan());
         debug_assert!(!self.0.y.is_nan());
@@ -63,7 +63,7 @@ impl<F: GeoFloat> std::cmp::PartialEq for NodeKey<F> {
     }
 }
 
-impl<F: GeoFloat> std::cmp::Eq for NodeKey<F> {}
+impl<F: GeoFloat> core::cmp::Eq for NodeKey<F> {}
 
 impl<F, NF> NodeMap<F, NF>
 where

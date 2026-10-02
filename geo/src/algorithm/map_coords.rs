@@ -639,7 +639,7 @@ impl<T: CoordNum, NT: CoordNum> MapCoords<T, NT> for Rect<T> {
 impl<T: CoordNum> MapCoordsInPlace<T> for Rect<T> {
     fn map_coords_in_place(&mut self, func: impl Fn(Coord<T>) -> Coord<T>) {
         let mut new_rect = Rect::new(func(self.min()), func(self.max()));
-        ::std::mem::swap(self, &mut new_rect);
+        ::core::mem::swap(self, &mut new_rect);
     }
 
     fn try_map_coords_in_place<E>(
@@ -647,7 +647,7 @@ impl<T: CoordNum> MapCoordsInPlace<T> for Rect<T> {
         func: impl Fn(Coord<T>) -> Result<Coord<T>, E>,
     ) -> Result<(), E> {
         let mut new_rect = Rect::new(func(self.min())?, func(self.max())?);
-        ::std::mem::swap(self, &mut new_rect);
+        ::core::mem::swap(self, &mut new_rect);
         Ok(())
     }
 }
@@ -679,7 +679,7 @@ impl<T: CoordNum> MapCoordsInPlace<T> for Triangle<T> {
     fn map_coords_in_place(&mut self, func: impl Fn(Coord<T>) -> Coord<T>) {
         let mut new_triangle = Triangle::new(func(self.v1()), func(self.v2()), func(self.v3()));
 
-        ::std::mem::swap(self, &mut new_triangle);
+        ::core::mem::swap(self, &mut new_triangle);
     }
 
     fn try_map_coords_in_place<E>(
@@ -688,7 +688,7 @@ impl<T: CoordNum> MapCoordsInPlace<T> for Triangle<T> {
     ) -> Result<(), E> {
         let mut new_triangle = Triangle::new(func(self.v1())?, func(self.v2())?, func(self.v3())?);
 
-        ::std::mem::swap(self, &mut new_triangle);
+        ::core::mem::swap(self, &mut new_triangle);
 
         Ok(())
     }
@@ -771,7 +771,7 @@ mod test {
         let rect = Rect::new((2, 2), (3, 3));
         // Rect's enforce that rect.min is up and left of p2.  Here we test that the points are
         // normalized into a valid rect, regardless of the order they are mapped.
-        let result: Result<_, std::convert::Infallible> = rect.try_map_coords(|pt| {
+        let result: Result<_, core::convert::Infallible> = rect.try_map_coords(|pt| {
             match pt.x_y() {
                 // old min point maps to new max point
                 (2, 2) => Ok((4, 4).into()),

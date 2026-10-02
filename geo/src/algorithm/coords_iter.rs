@@ -1,9 +1,9 @@
-use std::fmt::Debug;
+use core::fmt::Debug;
 
 use crate::geometry::*;
 use crate::{CoordNum, coord};
 
-use std::{fmt, iter, marker, slice};
+use core::{fmt, iter, marker, slice};
 
 type CoordinateChainOnce<T> = iter::Chain<iter::Once<Coord<T>>, iter::Once<Coord<T>>>;
 

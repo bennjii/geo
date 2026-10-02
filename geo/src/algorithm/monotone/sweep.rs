@@ -1,6 +1,7 @@
 use crate::old_sweep::{Active, Event, EventType, LineOrPoint, SweepPoint, VecSet};
 use crate::{GeoNum, Orientation};
-use std::{collections::BinaryHeap, fmt::Debug};
+use alloc::collections::BinaryHeap;
+use core::fmt::Debug;
 
 use super::{RcSegment, Segment};
 

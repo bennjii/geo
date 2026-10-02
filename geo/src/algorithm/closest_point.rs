@@ -3,7 +3,7 @@ use crate::GeoFloat;
 use crate::algorithm::{Euclidean, Intersects, Length};
 use crate::geometry::*;
 
-use std::iter;
+use core::iter;
 
 /// Find the closest `Point` between a given geometry and an input `Point`.
 /// The closest point may intersect the geometry, be a single

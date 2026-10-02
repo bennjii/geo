@@ -1,5 +1,5 @@
-use std::iter::Sum;
-use std::ops::RangeInclusive;
+use core::iter::Sum;
+use core::ops::RangeInclusive;
 
 use crate::{GeoFloat, MultiPoint, Point};
 

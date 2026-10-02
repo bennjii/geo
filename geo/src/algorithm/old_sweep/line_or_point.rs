@@ -1,4 +1,4 @@
-use std::{cmp::Ordering, ops::Deref};
+use core::{cmp::Ordering, ops::Deref};
 
 use super::SweepPoint;
 use crate::{
@@ -20,8 +20,8 @@ pub enum LineOrPoint<T: GeoNum> {
     },
 }
 
-impl<T: GeoNum> std::fmt::Debug for LineOrPoint<T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl<T: GeoNum> core::fmt::Debug for LineOrPoint<T> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self {
             LineOrPoint::Point(p) => f.debug_tuple("Pt").field(&p.x_y()).finish(),
             LineOrPoint::Line { left, right } => f
@@ -328,7 +328,7 @@ impl<T: GeoFloat> LineOrPoint<T> {
 
 #[cfg(test)]
 mod tests {
-    use std::cmp::Ordering;
+    use core::cmp::Ordering;
 
     use geo_types::{Coord, LineString};
     use wkt::ToWkt;

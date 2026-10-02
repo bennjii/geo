@@ -217,7 +217,7 @@ fn find_and_fix_holes_in_exterior<F: GeoFloat>(mut poly: Polygon<F>) -> Polygon<
         // create ring by collecting the points if something was found
         let ring = points
             .drain(pos..)
-            .chain(std::iter::once(p))
+            .chain(core::iter::once(p))
             .collect::<Vec<_>>();
         Some(ring)
     }

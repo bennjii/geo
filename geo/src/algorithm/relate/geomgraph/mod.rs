@@ -1,7 +1,7 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 
-use std::fmt;
+use core::fmt;
 
 pub(crate) use edge::Edge;
 pub(crate) use edge_end::{EdgeEnd, EdgeEndKey};

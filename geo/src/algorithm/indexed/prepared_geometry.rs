@@ -3,7 +3,7 @@ use crate::relate::geomgraph::GeometryGraph;
 use crate::{BoundingRect, GeometryCow, HasDimensions};
 use crate::{GeoFloat, Relate};
 
-use std::fmt::{Debug, Formatter};
+use core::fmt::{Debug, Formatter};
 
 use crate::dimensions::Dimensions;
 use rstar::RTreeNum;
@@ -53,7 +53,7 @@ where
     ///     "debug output is: PreparedGeometry(POLYGON((0.0 0.0,2.0 0.0,1.0 1.0,0.0 0.0)))"
     /// );
     /// ```
-    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("PreparedGeometry")
             .field(&self.geometry)
             .finish()

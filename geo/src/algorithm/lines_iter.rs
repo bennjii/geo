@@ -1,9 +1,9 @@
 use crate::{
     Coord, CoordNum, Line, LineString, MultiLineString, MultiPolygon, Polygon, Rect, Triangle,
 };
+use core::fmt::Debug;
+use core::iter;
 use core::slice;
-use std::fmt::Debug;
-use std::iter;
 
 /// Iterate over lines of a geometry.
 pub trait LinesIter<'a> {

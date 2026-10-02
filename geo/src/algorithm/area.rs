@@ -286,7 +286,7 @@ mod test {
     #[test]
     fn area_polygon_numerical_stability() {
         let polygon = {
-            use std::f64::consts::PI;
+            use core::f64::consts::PI;
             const NUM_VERTICES: usize = 10;
             const ANGLE_INC: f64 = 2. * PI / NUM_VERTICES as f64;
 
